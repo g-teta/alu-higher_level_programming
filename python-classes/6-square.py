@@ -49,10 +49,10 @@ class Square:
     def position(self, value):
         """Setter for position with validation."""
         if (
-            isinstance(value, tuple)
-            and len(value) == 2
-            and isinstance(value[0], int) and value[0] >= 0
-            and isinstance(value[1], int) and value[1] >= 0
+            isinstance(value, tuple) and
+            len(value) == 2 and
+            isinstance(value[0], int) and value[0] >= 0 and
+            isinstance(value[1], int) and value[1] >= 0
         ):
             self.__position = value
         else:
