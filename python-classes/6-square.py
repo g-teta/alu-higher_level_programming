@@ -25,7 +25,7 @@ class Square:
                               representing position offsets (default (0, 0)).
 
         Raises:
-            TypeError: If size is not an int or position is not a tuple of 2 positive ints.
+            TypeError: If size is not int or position not tuple of 2 positive ints.
             ValueError: If size is less than 0.
         """
         self.size = size
@@ -52,12 +52,14 @@ class Square:
     @position.setter
     def position(self, value):
         if (
-            not isinstance(value, tuple) or
-            len(value) != 2 or
-            not all(isinstance(num, int) for num in value) or
-            not all(num >= 0 for num in value)
+            not isinstance(value, tuple)
+            or len(value) != 2
+            or not all(isinstance(num, int) for num in value)
+            or not all(num >= 0 for num in value)
         ):
-            raise TypeError("position must be a tuple of 2 positive integers")
+            raise TypeError(
+                "position must be a tuple of 2 positive integers"
+            )
         self.__position = value
 
     def area(self):
