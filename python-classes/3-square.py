@@ -1,10 +1,24 @@
 #!/usr/bin/python3
-def __init__(self, size=0):
+"""
+This module defines a Square class with private size attribute.
+It supports area calculation and enforces value/type checks on instantiation.
+"""
+
+
+class Square:
+    """
+    Represents a square with a private size attribute.
+
+    Attributes:
+        __size (int): The size of the square (must be >= 0).
+    """
+
+    def __init__(self, size=0):
         """
-        Initialize a Square with optional size.
+        Initializes a Square instance.
 
         Args:
-            size (int, optional): The size of the square (default 0).
+            size (int): The size of the square (default 0).
 
         Raises:
             TypeError: If size is not an integer.
@@ -12,15 +26,13 @@ def __init__(self, size=0):
         """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
-
         if size < 0:
             raise ValueError("size must be >= 0")
-
         self.__size = size
 
-    def area(self):  # ✅ One blank line above this method
+    def area(self):
         """
-        Calculate and return the current area of the square.
+        Computes the area of the square.
 
         Returns:
             int: The area of the square.
