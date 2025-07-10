@@ -1,28 +1,24 @@
 #!/usr/bin/python3
-"""Defines a Rectangle class that tracks its instances and supports
-area, perimeter, string representation, recreation, and deletion.
+"""
+Defines a Rectangle class that supports width, height, area,
+perimeter, instance tracking, and string representations.
 """
 
 
 class Rectangle:
     """Represents a rectangle."""
 
-    number_of_instances = 0  # Class attribute to track active instances
+    number_of_instances = 0
 
     def __init__(self, width=0, height=0):
-        """Initialize a new Rectangle.
-
-        Args:
-            width (int): Width of the rectangle (default is 0).
-            height (int): Height of the rectangle (default is 0).
-        """
+        """Initialize a new Rectangle instance."""
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
 
     @property
     def width(self):
-        """Retrieve the width of the rectangle."""
+        """Retrieve the width."""
         return self.__width
 
     @width.setter
@@ -36,7 +32,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """Retrieve the height of the rectangle."""
+        """Retrieve the height."""
         return self.__height
 
     @height.setter
@@ -59,16 +55,16 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """Return the rectangle using `#` characters."""
+        """Return a string representation using '#' characters."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join("#" * self.__width for _ in range(self.__height))
+        return "\n".join(["#" * self.__width for _ in range(self.__height)])
 
     def __repr__(self):
-        """Return a string that recreates the rectangle using eval()."""
+        """Return a string to recreate the Rectangle instance."""
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
-        """Print a message when the rectangle is deleted and decrement count."""
+        """Print message on deletion and update instance count."""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
